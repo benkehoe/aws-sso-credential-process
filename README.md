@@ -7,7 +7,7 @@ If you try this and your tools still don't work with the credentials, you can ge
 
 ## Quickstart
 
-1. I recommend you install [`pipx`](https://pipxproject.github.io/pipx/), which installs the tool in an isolated virtualenv while linking the script you need.
+1. You can install with `pip` on any platform, but I recommend you use [`pipx`](https://pipxproject.github.io/pipx/), which will let you install `aws-sso-credential-process` in an isolated virtualenv while linking the executables onto your `$PATH`. To install `pipx`:
 
 Mac:
 ```bash
