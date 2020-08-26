@@ -117,7 +117,9 @@ The most important thing to determine is whether or not you want to allow intera
 
 When interactive authentication is off, you need to use the CLI v2's `aws sso login` to login through AWS SSO. If you haven't logged in or your session has expired, the process will fail and interrupt whatever you're doing.
 
-With interactive authentication turned on, the functionality of `aws sso login` will be triggered automatically; a browser will pop up to prompt you to log in (or, if you're already logged in, it will prompt you to approve the login). This is useful when you're running scripts interactively, but bad for automated processes that are incapable of logging in.
+With interactive authentication turned on, the same functionality of `aws sso login` will be triggered automatically; a browser will pop up to prompt you to log in (or, if you're already logged in, it will prompt you to approve the login). This is useful when you're running scripts interactively, but bad for automated processes that are incapable of logging in.
+
+Note that with interactive authentication off, you have to have the AWS CLI v2 installed, but with interactive authentication on, this dependency is eliminated.
 
 **To enable interactive authentication, the best way is to set `AWS_SSO_INTERACTIVE_AUTH=true` in your environment.** This lets you control whether interactive auth is enabled for a given profile depending on the situation you're using it for. Otherwise, you can set `sso_interactive_auth=true` in your profile in `.aws/config`, or use the `--interactive` flag for the process. Note that you can use the `--noninteractive` flag to disable interactive auth even if the environment variable is set.
 
