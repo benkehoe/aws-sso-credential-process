@@ -5,6 +5,12 @@ Currently, [AWS SSO](https://aws.amazon.com/single-sign-on/) support is implemen
 
 If you try this and your tools still don't work with the credentials, you can get the credentials themselves using [aws-export-credentials](https://github.com/benkehoe/aws-export-credentials), which can also inject them as environment variables for your program.
 
+## SDK support for AWS SSO
+
+Read this section to determine if the SDK in your language of choice has implemented support for AWS SSO.
+
+* [boto3 (the Python SDK)](boto3.amazonaws.com/v1/documentation/api/latest/index.html) has added support for loading credentials cached by [`aws sso login`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sso/login.html) as of [version 1.14.0](https://github.com/boto/boto3/blob/develop/CHANGELOG.rst#1140). However, it does not support initiating authentication. That is, if the credentials are expired, you have to use `aws sso login` to login again, and this of course means that you (and your users) need the AWS CLI v2 installed for your Python scripts to use AWS SSO credentials. `aws-sso-credential-process` does not have a dependency on AWS CLI v2 and supports initiating authentication.
+
 ## Quickstart
 
 1. You can install with `pip` on any platform, but I recommend you use [`pipx`](https://pipxproject.github.io/pipx/), which will let you install `aws-sso-credential-process` in an isolated virtualenv while linking the executables onto your `$PATH`. To install `pipx`:
